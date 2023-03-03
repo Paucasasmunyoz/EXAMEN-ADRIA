@@ -16,10 +16,10 @@ const db = admin.firestore();
 app.post('/:nom/:primer_cognom/mvp/:nom_jugador', async (req, res) => {
     try {
         const { nom, primer_cognom, nom_jugador } = req.params;
-        const docRef = db.collection('final22casas').doc(`${nom}_${primer_cognom}`);
+        const docRef = db.collection('final22<casas>').doc(`${nom}_${primer_cognom}`);
         const doc = await docRef.get();
         if (!doc.exists) {
-            throw new Error(`No se encontró el documento final22casas/${nom}_${primer_cognom}`);
+            throw new Error(`No se encontró el documento final22<casas>/${nom}_${primer_cognom}`);
         }
         await docRef.update({
             mejor_jugador: nom_jugador
